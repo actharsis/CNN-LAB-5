@@ -89,7 +89,7 @@ def main():
   model = build_model()
 
   model.compile(
-    optimizer=tf.optimizers.Adam(),
+    optimizer=tf.optimizers.Adam(learning_rate=learning_rate),
     loss=tf.keras.losses.categorical_crossentropy,
     metrics=[tf.keras.metrics.categorical_accuracy],
   )
@@ -99,7 +99,7 @@ def main():
     epochs=20,
     validation_data=validation_dataset,
     callbacks=[
-      tf.keras.callbacks.TensorBoard(log_dir), learning_rate
+      tf.keras.callbacks.TensorBoard(log_dir)
     ]
   )
 
